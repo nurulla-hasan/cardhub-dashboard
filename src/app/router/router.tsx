@@ -9,6 +9,7 @@ import Deck from "../pages/Deck";
 import Wishlist from "../pages/Wishlist";
 import TradeMatching from "../pages/TradeMatching";
 import Mainlayout from "../layout/Mainlayout";
+import Notifications from "../pages/Notifications";
 
 export const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
       {
         path: "/trade-matching",
         element: <TradeMatching />,
+      },
+      {
+        path: "/notifications",
+        element: <Notifications />,
       },
     ],
   },

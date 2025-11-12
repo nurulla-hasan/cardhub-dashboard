@@ -183,3 +183,14 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+
+
+.custom-height {
+    height: calc(100vh - 65px);
+}
+
+.dark .gradient-color {
+    background: linear-gradient(to right, #2a1836, #32152a);
+    border: 1px solid hsl(var(--border) / 0.6);
+}
