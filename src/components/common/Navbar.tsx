@@ -125,7 +125,7 @@ const Navbar = () => {
               >
                 <Wallet className="text-primary" />
               </Button>
-              <span className="text-lg font-semibold tracking-tight">
+              <span className="text-sm font-semibold tracking-tight">
                 0,00 €
               </span>
             </div>
