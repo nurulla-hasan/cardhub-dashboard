@@ -7,7 +7,7 @@ import { Action, ChartPlaceholder, NotificationsPanel, SmallKpi, Stat } from "@/
 const Dashboard = () => {
   return (
     <div className="space-y-4">
-      <div className="text-xl font-semibold">Welcome back, Username 👋</div>
+      <div className="text-2xl font-semibold">Welcome back, Username 👋</div>
 
       <div className="grid grid-cols-1 lg:grid-cols-7 gap-4">
         <div className="lg:col-span-5 space-y-4">
