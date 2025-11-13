@@ -1,24 +1,36 @@
 import { Card } from "@/components/ui/card";
 
 import { CardContent } from "@/components/ui/card";
-import { Check } from "lucide-react";
+import { Check, Eye, TrendingDown } from "lucide-react";
 import type { InventoryItem } from "./inventoryTypes";
+import { Badge } from "@/components/ui/badge";
 
 const InventoryCard = ({
   item,
   isSelected,
   onSelect,
+  selectEnabled = false,
 }: {
   item: InventoryItem;
   isSelected: boolean;
   onSelect: (id: string) => void;
+  selectEnabled?: boolean;
 }) => {
   return (
     <Card
-      className={`cursor-pointer transition-colors ${
-        isSelected ? "ring-2 ring-primary bg-primary/5" : "hover:bg-muted/50"
+      className={`${
+        selectEnabled ? "cursor-pointer" : "cursor-default"
+      } transition-colors ${
+        isSelected
+          ? "ring-2 ring-primary bg-primary/5"
+          : selectEnabled
+          ? "hover:bg-muted/50"
+          : ""
       }`}
-      onClick={() => onSelect(item.id)}
+      onClick={() => {
+        if (!selectEnabled) return;
+        onSelect(item.id);
+      }}
     >
       <CardContent className="p-4">
         <div className="relative mb-3 rounded-lg overflow-hidden bg-muted">
@@ -29,21 +41,38 @@ const InventoryCard = ({
               className="h-full w-full object-cover"
             />
           </div>
-          <span className="absolute left-3 top-3 rounded-full bg-orange-500/95 px-2.5 py-1 text-[11px] font-semibold text-white shadow">
-            Promo (★ Black Star)
+          <Badge className="absolute left-3 top-3 bg-orange-500/95">Promo (★ Black Star)</Badge>
+          {selectEnabled && (
+            <span
+              className={`absolute right-3 top-3 inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-primary ${
+                isSelected
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "bg-background/80 backdrop-blur border-border"
+              }`}
+            >
+              {isSelected && <Check className="h-4 w-4" />}
+            </span>
+          )}
+        </div>
+        <div className="flex items-center justify-between gap-2 mb-2">
+          <h3 className="font-semibold text-lg">{item.name}</h3>
+          <Eye className="size-4 text-purple-500" />
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="inline-flex items-center rounded-full border border-border/60 bg-background/40 px-3 py-1 text-[11px] font-medium">
+            Near Mint (NM)
           </span>
-          <span
-            className={`absolute right-3 top-3 inline-flex h-7 w-7 items-center justify-center rounded-full border shadow-sm ${
-              isSelected
-                ? "bg-primary text-primary-foreground border-primary"
-                : "bg-background/80 backdrop-blur border-border"
-            }`}
-          >
-            {isSelected && <Check className="h-4 w-4" />}
+          <span className="inline-flex items-center rounded-full border border-border/60 bg-background/40 px-3 py-1 text-[11px] font-medium">
+            Sword & Shield
           </span>
         </div>
-        <h3 className="font-semibold text-sm mb-1">{item.name}</h3>
-        <p className="text-lg font-bold text-primary">{item.price}</p>
+        <div className="my-3 h-px bg-border/60" />
+        <div className="flex items-center justify-between">
+          <p className="text-lg font-bold text-emerald-500">{item.price}</p>
+          <span className="inline-flex items-center gap-1 rounded-full border border-border/60 bg-background/40 px-3 py-1 text-[11px] font-medium text-foreground">
+            <TrendingDown className="size-4" /> 1.1% below market
+          </span>
+        </div>
       </CardContent>
     </Card>
   );

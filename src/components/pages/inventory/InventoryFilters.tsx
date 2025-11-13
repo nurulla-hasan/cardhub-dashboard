@@ -2,33 +2,27 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
-import { Filter, Grid2x2, List, CheckSquare } from "lucide-react";
+import { Filter, Grid2x2, List, Search, Squircle, SquareCheckBig } from "lucide-react";
 
-export const InventoryFilters = () => {
+export const InventoryFilters = ({
+  selectMode,
+  onToggleSelectMode,
+}: {
+  selectMode: boolean;
+  onToggleSelectMode: () => void;
+}) => {
   const [isGrid, setIsGrid] = useState(true);
   return (
     <div className="flex items-center justify-between gap-4">
       <div className="flex-1 max-w-xl">
         <div className="relative">
           <Input placeholder="Search" className="pl-9" />
-          <svg
-            className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <circle cx="11" cy="11" r="8" />
-            <path d="m21 21-4.3-4.3" />
-          </svg>
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         </div>
       </div>
 
       <div className="flex items-center gap-2">
-        <Button variant="outline" className="gap-2">
+        <Button variant="outline">
           <Filter />
           Filter
         </Button>
@@ -48,8 +42,12 @@ export const InventoryFilters = () => {
             </span>
           </div>
         </div>
-        <Button variant="outline" className="gap-2">
-          <CheckSquare />
+        <Button
+          variant="outline"
+          aria-pressed={selectMode}
+          onClick={onToggleSelectMode}
+        >
+          {selectMode ? <SquareCheckBig /> : <Squircle /> } 
           Select cards
         </Button>
       </div>

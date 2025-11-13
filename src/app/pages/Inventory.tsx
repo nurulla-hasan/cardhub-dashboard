@@ -4,44 +4,19 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import InventoryFilters from "@/components/pages/inventory/InventoryFilters";
 import PortfolioSummary from "@/components/pages/inventory/PortfolioSummary";
-import type { InventoryItem } from "@/components/pages/inventory/inventoryTypes";
+import { items } from "@/components/pages/inventory/inventoryData";
+import { Plus } from "lucide-react";
+import SelectCardModal from "@/components/pages/inventory/SelectCardModal";
 
 const Inventory = () => {
   const [selected, setSelected] = useState<string[]>([]);
+  const [selectMode, setSelectMode] = useState(false);
 
   const toggleSelect = (id: string) => {
     setSelected((prev) =>
       prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
     );
   };
-
-  const items: InventoryItem[] = [
-    {
-      id: "1",
-      name: "Charizard",
-      image: "https://via.placeholder.com/200x200?text=Charizard",
-      price: "500.00 €",
-    },
-    {
-      id: "2",
-      name: "Pikachu",
-      image: "https://via.placeholder.com/200x200?text=Pikachu",
-      price: "150.00 €",
-    },
-    {
-      id: "3",
-      name: "Bulbasaur",
-      image: "https://via.placeholder.com/200x200?text=Bulbasaur",
-      price: "100.00 €",
-    },
-    {
-      id: "4",
-      name: "Squirtle",
-      image: "https://via.placeholder.com/200x200?text=Squirtle",
-      price: "120.00 €",
-    },
-    // Add more as needed
-  ];
 
   return (
     <div className="space-y-6">
@@ -54,7 +29,7 @@ const Inventory = () => {
                 Manage your card collection. Select items to perform actions.
               </p>
             </div>
-            <Button>Add card</Button>
+            <Button size="lg"><Plus/> Add card</Button>
           </div>
         </CardContent>
       </Card>
@@ -63,17 +38,37 @@ const Inventory = () => {
           <PortfolioSummary />
         </div>
         <div className="lg:col-span-5 space-y-5">
-          <InventoryFilters />
+          <InventoryFilters
+            selectMode={selectMode}
+            onToggleSelectMode={() => setSelectMode((v) => !v)}
+          />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {items.map((item) => (
               <InventoryCard
                 key={item.id}
                 item={item}
                 isSelected={selected.includes(item.id)}
-                onSelect={toggleSelect}
+                onSelect={(id) => {
+                  if (!selectMode) return;
+                  toggleSelect(id);
+                }}
+                selectEnabled={selectMode}
               />
             ))}
           </div>
+          <SelectCardModal
+            selectMode={selectMode}
+            selected={selected}
+            allItemIds={items.map((item) => item.id)}
+            setSelected={setSelected}
+            setSelectMode={setSelectMode}
+            onListSelected={(ids) => {
+              console.log("List selected", ids);
+            }}
+            onDelistSelected={(ids) => {
+              console.log("Delist selected", ids);
+            }}
+          />
         </div>
       </div>
     </div>
@@ -81,3 +76,4 @@ const Inventory = () => {
 };
 
 export default Inventory;
+
