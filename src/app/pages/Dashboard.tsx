@@ -2,7 +2,11 @@ import { Layers3, ScanLine, Download, Store } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Action, ChartPlaceholder, NotificationsPanel, SmallKpi, Stat } from "@/components/pages/dashboard/DashboardComponents";
+import NotificationsPanel from "@/components/pages/dashboard/NotificationsPanel";
+import ChartPlaceholder from "@/components/pages/dashboard/ChartPlaceholder";
+import SmallKpi from "@/components/pages/dashboard/SmallKpi";
+import Action from "@/components/pages/dashboard/Action";
+import { Stat } from "@/components/pages/dashboard/Stat";
 
 const Dashboard = () => {
   return (
@@ -27,8 +31,21 @@ const Dashboard = () => {
             <div className="md:col-span-4">
               <Card className="gradient-color">
                 <CardContent className="p-0">
-                  <div className="p-4">
+                  <div className="flex items-center justify-between p-4">
                     <div className="text-lg font-semibold">Main Area</div>
+                    <Tabs defaultValue="total">
+                      <TabsList className="bg-transparent">
+                        <TabsTrigger value="total">
+                          Total collection value
+                        </TabsTrigger>
+                        <TabsTrigger value="activity">
+                          Recent activity feed
+                        </TabsTrigger>
+                        <TabsTrigger value="highlights">
+                          Nearby highlights
+                        </TabsTrigger>
+                      </TabsList>
+                    </Tabs>
                   </div>
                   <Separator />
                   <div className="p-4">
@@ -36,27 +53,30 @@ const Dashboard = () => {
                       <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/20 text-primary">
                         <Layers3 />
                       </span>
-                      <div className="text-3xl font-semibold tracking-tight">2.165,50 €</div>
+                      <div className="text-3xl font-semibold tracking-tight">
+                        2.165,50 €
+                      </div>
                     </div>
-                    <div className="text-xs text-muted-foreground mt-1">Total collection value</div>
-
-                    <div className="mt-4">
-                      <Tabs defaultValue="total" className="w-full">
-                        <TabsList className="h-9 bg-transparent">
-                          <TabsTrigger value="total">Total collection value</TabsTrigger>
-                          <TabsTrigger value="activity">Recent activity feed</TabsTrigger>
-                          <TabsTrigger value="highlights">Nearby highlights</TabsTrigger>
-                        </TabsList>
-                      </Tabs>
+                    <div className="text-xs text-muted-foreground mt-1">
+                      Total collection value
                     </div>
-
                     <div className="grid grid-cols-2 gap-4 mt-4">
-                      <SmallKpi title="Private Collection" value="14.500,00 €" sub="79% of total" />
-                      <SmallKpi title="Listed for Sale" value="3.950,00 €" sub="Two Cards" />
+                      <SmallKpi
+                        title="Private Collection"
+                        value="14.500,00 €"
+                        sub="79% of total"
+                      />
+                      <SmallKpi
+                        title="Listed for Sale"
+                        value="3.950,00 €"
+                        sub="Two Cards"
+                      />
                     </div>
 
                     <div className="mt-6">
-                      <div className="text-[11px] text-muted-foreground mb-2">Price History (30 Days)</div>
+                      <div className="text-[11px] text-muted-foreground mb-2">
+                        Price History (30 Days)
+                      </div>
                       <ChartPlaceholder />
                     </div>
                   </div>
