@@ -22,14 +22,14 @@ const Inventory = () => {
     <div className="space-y-6">
       <Card className="gradient-color">
         <CardContent className="p-6">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between sm:items-center">
             <div>
               <h1 className="text-2xl font-bold">Inventory</h1>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground hidden sm:block">
                 Manage your card collection. Select items to perform actions.
               </p>
             </div>
-            <Button size="lg"><Plus/> Add card</Button>
+            <Button><Plus/> Add card</Button>
           </div>
         </CardContent>
       </Card>
