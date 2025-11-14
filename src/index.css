@@ -194,3 +194,7 @@ body {
     background: linear-gradient(to right, #2a1836, #32152a);
     border: 1px solid hsl(var(--border) / 0.6);
 }
+
+.gradient-button {
+    background: linear-gradient(90deg, #a855f7, #ec4899, #fb7185);
+}

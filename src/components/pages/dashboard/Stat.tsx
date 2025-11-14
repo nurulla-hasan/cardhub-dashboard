@@ -11,7 +11,7 @@ export const Stat = ({
   sub?: string;
 }) => (
   <Card className="bg-card/70 border-border/60">
-    <CardContent className="p-4 grid gap-2">
+    <CardContent className="grid gap-2">
       <div className="flex items-center gap-2">
         <div
           className={`font-semibold ${

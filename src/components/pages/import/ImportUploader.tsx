@@ -29,7 +29,7 @@ const ImportUploader = () => {
   return (
     <div className="mt-2 flex justify-center">
       <Card className="w-full max-w-7xl">
-        <CardContent className="p-6 space-y-5">
+        <CardContent className="space-y-5">
           <Tabs defaultValue="scan" className="w-full">
             <TabsList className="grid grid-cols-3 h-12 p-1 rounded-full bg-muted w-full">
               <TabsTrigger

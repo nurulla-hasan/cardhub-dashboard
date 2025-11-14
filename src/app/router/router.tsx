@@ -10,6 +10,7 @@ import Wishlist from "../pages/Wishlist";
 import TradeMatching from "../pages/TradeMatching";
 import Mainlayout from "../layout/Mainlayout";
 import Notifications from "../pages/Notifications";
+import InventoryDetails from "../pages/InventoryDetails";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: "/inventory",
         element: <Inventory />,
+      },
+      {
+        path: "/inventory/:id",
+        element: <InventoryDetails />,
       },
       {
         path: "/import",

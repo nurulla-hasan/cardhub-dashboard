@@ -1,6 +1,6 @@
-import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
-import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
-import { ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import { type ChartConfig } from "@/components/ui/chart";
+import CustomChart from "@/components/common/CustomChart";
+
 const dashboardChartData = [
   { label: "12 Oct", trend: 480, highest: 250, lowest: 360 },
   { label: "18 Oct", trend: 192, highest: 252, lowest: 165 },
@@ -18,62 +18,7 @@ const dashboardChartConfig: ChartConfig = {
 const ChartPlaceholder = () => {
   return (
     <div className="h-64 rounded-md border border-border/60 bg-background/50 p-3">
-      <ChartContainer
-        config={dashboardChartConfig}
-        className="h-full w-full rounded-md border border-border/60 bg-black/5 p-4 dark:bg-white/5"
-      >
-        <LineChart accessibilityLayer data={dashboardChartData}>
-          <CartesianGrid
-            strokeDasharray="4 4"
-            vertical={false}
-            stroke="hsl(var(--border) / 0.4)"
-          />
-          <XAxis
-            dataKey="label"
-            axisLine={false}
-            tickLine={false}
-            tickMargin={8}
-            stroke="hsl(var(--border) / 0.6)"
-            tick={{ fontSize: 11 }}
-          />
-          <YAxis
-            axisLine={false}
-            tickLine={false}
-            tickFormatter={(value) => `${value}€`}
-            stroke="hsl(var(--border) / 0.6)"
-            tick={{ fontSize: 11 }}
-            width={36}
-          />
-          <ChartTooltip
-            cursor={false}
-            content={<ChartTooltipContent indicator="line" />}
-          />
-          <Line
-            type="monotone"
-            dataKey="trend"
-            stroke="#38bdf8"
-            strokeWidth={3}
-            dot={false}
-            activeDot={{ r: 5, fill: "#38bdf8", stroke: "transparent" }}
-          />
-          <Line
-            type="monotone"
-            dataKey="highest"
-            stroke="#34d399"
-            strokeWidth={2}
-            dot={false}
-            activeDot={{ r: 4, fill: "#34d399", stroke: "transparent" }}
-          />
-          <Line
-            type="monotone"
-            dataKey="lowest"
-            stroke="#fb7185"
-            strokeWidth={2}
-            dot={false}
-            activeDot={{ r: 4, fill: "#fb7185", stroke: "transparent" }}
-          />
-        </LineChart>
-      </ChartContainer>
+      <CustomChart config={dashboardChartConfig} data={dashboardChartData} />
     </div>  
   );
 };

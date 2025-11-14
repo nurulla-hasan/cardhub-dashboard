@@ -7,7 +7,7 @@ const Action = ({
   label: string;
 }) => (
   <Card className="bg-card/70 border-border/60">
-    <CardContent className="p-6">
+    <CardContent>
       <div className="flex flex-col items-center gap-3">
         <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary ring-1 ring-primary/20">
           <Icon className="size-6" />

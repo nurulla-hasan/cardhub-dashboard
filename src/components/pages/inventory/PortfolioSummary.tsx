@@ -1,18 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-  type ChartConfig,
-} from "@/components/ui/chart";
-import {
-  CartesianGrid,
-  Line,
-  LineChart,
-  XAxis,
-  YAxis,
-  ReferenceLine,
-} from "recharts";
+import { type ChartConfig } from "@/components/ui/chart";
+import CustomChart from "@/components/common/CustomChart";
 
 const chartData = [
   { label: "12 Oct", trend: 380, highest: 250, lowest: 660 },
@@ -40,7 +28,7 @@ const chartConfig: ChartConfig = {
 const PortfolioSummary = () => {
   return (
     <Card className="gradient-color">
-      <CardContent className="space-y-6 p-6">
+      <CardContent className="space-y-6">
         <div>
           <h2 className="text-lg font-semibold">Portfolio Summary</h2>
           <div className="mt-4 grid grid-cols-2 gap-4 text-sm">
@@ -93,81 +81,7 @@ const PortfolioSummary = () => {
               Lowest
             </div>
           </div>
-          <ChartContainer
-            config={chartConfig}
-            className="mt-4 rounded-2xl border border-border/60 bg-black/5 p-4 dark:bg-white/5"
-          >
-            <LineChart
-              accessibilityLayer
-              data={chartData}
-            >
-              <CartesianGrid
-                strokeDasharray="4 4"
-                vertical={false}
-                stroke="hsl(var(--border) / 0.4)"
-              />
-              <XAxis
-                dataKey="label"
-                axisLine={false}
-                tickLine={false}
-                tickMargin={10}
-                stroke="hsl(var(--border) / 0.6)"
-                tick={{ fontSize: 11 }}
-              />
-              <YAxis
-                axisLine={false}
-                tickLine={false}
-                tickFormatter={(value) => `${value}€`}
-                stroke="hsl(var(--border) / 0.6)"
-                tick={{ fontSize: 11 }}
-                width={40}
-              />
-              {/* Fake horizontal lines to match screenshot */}
-              <ReferenceLine
-                ifOverflow="extendDomain"
-                y={360}
-                stroke="hsl(var(--border) / 0.35)"
-                strokeDasharray="3 3"
-              />
-              <ReferenceLine
-                ifOverflow="extendDomain"
-                y={410}
-                stroke="hsl(var(--border) / 0.35)"
-                strokeDasharray="3 3"
-              />
-              <ReferenceLine
-                ifOverflow="extendDomain"
-                y={450}
-                stroke="hsl(var(--border) / 0.35)"
-                strokeDasharray="3 3"
-              />
-              <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />
-              <Line
-                type="monotone"
-                dataKey="trend"
-                stroke="#38bdf8"
-                strokeWidth={3}
-                dot={false}
-                activeDot={{ r: 5, fill: "#38bdf8", stroke: "transparent" }}
-              />
-              <Line
-                type="monotone"
-                dataKey="highest"
-                stroke="#34d399"
-                strokeWidth={2}
-                dot={false}
-                activeDot={{ r: 4, fill: "#34d399", stroke: "transparent" }}
-              />
-              <Line
-                type="monotone"
-                dataKey="lowest"
-                stroke="#fb7185"
-                strokeWidth={2}
-                dot={false}
-                activeDot={{ r: 4, fill: "#fb7185", stroke: "transparent" }}
-              />
-            </LineChart>
-          </ChartContainer>
+          <CustomChart config={chartConfig} data={chartData} />
         </div>
       </CardContent>
     </Card>

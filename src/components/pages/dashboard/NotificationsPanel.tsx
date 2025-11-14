@@ -6,7 +6,7 @@ import { ArrowUpRight, Bell } from "lucide-react";
 const NotificationsPanel = () => {
   return (
     <Card className="bg-card/70 border-border/60 h-full">
-      <CardContent className="p-4 h-full flex flex-col">
+      <CardContent className="h-full flex flex-col">
         <div className="flex items-center justify-between">
           <div className="text-sm font-semibold">Notifications</div>
           <Link to="/notifications">

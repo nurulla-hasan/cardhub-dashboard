@@ -32,7 +32,7 @@ const InventoryCard = ({
         onSelect(item.id);
       }}
     >
-      <CardContent className="p-4">
+      <CardContent>
         <div className="relative mb-3 rounded-lg overflow-hidden bg-muted">
           <div className="aspect-3/4 w-full">
             <img

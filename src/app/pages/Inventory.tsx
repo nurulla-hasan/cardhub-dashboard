@@ -21,7 +21,7 @@ const Inventory = () => {
   return (
     <div className="space-y-6">
       <Card className="gradient-color">
-        <CardContent className="p-6">
+        <CardContent>
           <div className="flex justify-between sm:items-center">
             <div>
               <h1 className="text-2xl font-bold">Inventory</h1>
