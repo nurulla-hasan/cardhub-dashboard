@@ -47,7 +47,11 @@ const InventoryDetails = () => {
         <div className="lg:col-span-3">
           <Card className="gradient-color">
             <div className="rounded-2xl px-3">
-              <div className="aspect-3/4 w-full overflow-hidden rounded-lg bg-linear-to-br from-orange-500/50 via-red-500/50 to-purple-700/50" />
+              <img
+                src="/images/card.png"
+                alt="Charizard VMAX"
+                className="aspect-3/4 w-full rounded-lg object-cover"
+              />
             </div>
             <CardContent className="flex flex-col gap-4">
               <div className="mt-auto space-y-3 text-sm">

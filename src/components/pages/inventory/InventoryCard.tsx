@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-
+import { Link } from "react-router";
 import { CardContent } from "@/components/ui/card";
 import { Check, Eye, TrendingDown } from "lucide-react";
 import type { InventoryItem } from "./inventoryTypes";
@@ -56,7 +56,9 @@ const InventoryCard = ({
         </div>
         <div className="flex items-center justify-between gap-2 mb-2">
           <h3 className="font-semibold text-lg">{item.name}</h3>
-          <Eye className="size-4 text-purple-500" />
+          <Link to={`/inventory/${item.id}`}>
+            <Eye className="size-4 text-purple-500" />
+          </Link>
         </div>
         <div className="flex flex-wrap items-center gap-2">
           <span className="inline-flex items-center rounded-full border border-border/60 bg-background/40 px-3 py-1 text-[11px] font-medium">
