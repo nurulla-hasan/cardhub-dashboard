@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router";
 import CustomChart from "@/components/common/CustomChart";
+import EditModal from "@/components/pages/inventory-details/EditModal";
 
 const priceChartConfig = {
   trend: { label: "Trend", color: "#38bdf8" },
@@ -83,7 +84,7 @@ const InventoryDetails = () => {
             <CardContent className="space-y-5">
               <div className="flex items-center justify-between gap-2">
                 <p className="font-semibold text-foreground">Details</p>
-                <PenLine className="h-4 w-4 text-muted-foreground" />
+                <EditModal />
               </div>
 
               <div className="space-y-4">
