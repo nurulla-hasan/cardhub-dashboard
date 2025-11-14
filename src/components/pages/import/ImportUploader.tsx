@@ -1,15 +1,34 @@
+"use client";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Camera, Search, Upload, Info, Lightbulb } from "lucide-react";
+import { useState } from "react";
+import ImportSuccessModal from "./ImportSuccessModal";
 
 const ImportUploader = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleAddCard = () => {
+    setOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpen(false);
+  };
+
   return (
     <div className="mt-2 flex justify-center">
-      <Card className="w-full max-w-5xl bg-card/80 border-border/60 shadow-lg">
+      <Card className="w-full max-w-7xl">
         <CardContent className="p-6 space-y-5">
           <Tabs defaultValue="scan" className="w-full">
             <TabsList className="grid grid-cols-3 h-12 p-1 rounded-full bg-muted w-full">
@@ -48,8 +67,8 @@ const ImportUploader = () => {
                       Position your card in the frame
                     </p>
                     <p className="max-w-sm text-xs text-muted-foreground">
-                      Make sure the card is well-lit and in focus. Avoid glare and keep the card
-                      centered for the best recognition.
+                      Make sure the card is well-lit and in focus. Avoid glare
+                      and keep the card centered for the best recognition.
                     </p>
                   </div>
 
@@ -86,11 +105,14 @@ const ImportUploader = () => {
             <TabsContent value="manual" className="space-y-4 mt-6">
               <div className="grid gap-5 lg:grid-cols-[minmax(0,2.2fr)_minmax(260px,1fr)] items-stretch">
                 <div className="flex flex-col">
-                  <div className="flex-1 rounded-xl border gradient-color px-8 py-10 text-xs sm:text-sm text-muted-foreground flex flex-col gap-6">
+                  <div className="flex-1 rounded-xl border gradient-color p-6 text-xs sm:text-sm text-muted-foreground flex flex-col gap-6">
                     <div className="text-foreground">
-                      <p className="text-base sm:text-lg font-semibold">Search for a card manually</p>
+                      <p className="text-base sm:text-lg font-semibold">
+                        Search for a card manually
+                      </p>
                       <p className="mt-1 text-xs text-muted-foreground">
-                        Enter a few details and we'll help you find the exact card in your collection.
+                        Enter a few details and we'll help you find the exact
+                        card in your collection.
                       </p>
                     </div>
 
@@ -116,32 +138,35 @@ const ImportUploader = () => {
                           className=" border-none text-foreground placeholder:text-muted-foreground"
                         />
                       </div>
-                      <div className="space-y-1.5">
-                        <Label
-                          htmlFor="manual-set"
-                          className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground"
-                        >
-                          Set
-                        </Label>
-                        <Input
-                          id="manual-set"
-                          placeholder="e.g. Darkness Ablaze"
-                          className=" border-none text-foreground placeholder:text-muted-foreground"
-                        />
-                      </div>
                       <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-1.5">
                           <Label
-                            htmlFor="manual-number"
+                            htmlFor="manual-edition"
                             className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground"
                           >
-                            Card number
+                            Edition
                           </Label>
-                          <Input
-                            id="manual-number"
-                            placeholder="020/189"
-                            className=" border-none text-foreground placeholder:text-muted-foreground"
-                          />
+                          <Select>
+                            <SelectTrigger className="border-none text-foreground bg-transparent">
+                              <SelectValue placeholder="Select edition" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="1st-edition">
+                                1st Edition
+                              </SelectItem>
+                              <SelectItem value="unlimited">
+                                Unlimited
+                              </SelectItem>
+                              <SelectItem value="shadowless">
+                                Shadowless
+                              </SelectItem>
+                              <SelectItem value="holo">Holo</SelectItem>
+                              <SelectItem value="reverse-holo">
+                                Reverse Holo
+                              </SelectItem>
+                              <SelectItem value="promo">Promo</SelectItem>
+                            </SelectContent>
+                          </Select>
                         </div>
                         <div className="space-y-1.5">
                           <Label
@@ -158,39 +183,103 @@ const ImportUploader = () => {
                               <SelectItem value="common">Common</SelectItem>
                               <SelectItem value="uncommon">Uncommon</SelectItem>
                               <SelectItem value="rare">Rare</SelectItem>
-                              <SelectItem value="rare-holo">Rare Holo</SelectItem>
-                              <SelectItem value="super-rare">Super Rare</SelectItem>
-                              <SelectItem value="secret-rare">Secret Rare</SelectItem>
-                              <SelectItem value="ultra-rare">Ultra Rare</SelectItem>
+                              <SelectItem value="rare-holo">
+                                Rare Holo
+                              </SelectItem>
+                              <SelectItem value="super-rare">
+                                Super Rare
+                              </SelectItem>
+                              <SelectItem value="secret-rare">
+                                Secret Rare
+                              </SelectItem>
+                              <SelectItem value="ultra-rare">
+                                Ultra Rare
+                              </SelectItem>
                               <SelectItem value="promo">Promo</SelectItem>
-                              <SelectItem value="1st-edition">1st Edition</SelectItem>
+                              <SelectItem value="1st-edition">
+                                1st Edition
+                              </SelectItem>
                             </SelectContent>
                           </Select>
                         </div>
                       </div>
-                      <div className="space-y-1.5">
-                        <Label
-                          htmlFor="manual-notes"
-                          className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground"
-                        >
-                          Notes
-                        </Label>
-                        <Input
-                          id="manual-notes"
-                          placeholder="Language, condition, promo info..."
-                          className=" border-none text-foreground placeholder:text-muted-foreground"
-                        />
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="space-y-1.5">
+                          <Label
+                            htmlFor="manual-condition"
+                            className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground"
+                          >
+                            Condition
+                          </Label>
+                          <Select>
+                            <SelectTrigger className="border-none text-foreground bg-transparent">
+                              <SelectValue placeholder="Select condition" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="mint">Mint</SelectItem>
+                              <SelectItem value="near-mint">
+                                Near Mint
+                              </SelectItem>
+                              <SelectItem value="lightly-played">
+                                Lightly Played
+                              </SelectItem>
+                              <SelectItem value="moderately-played">
+                                Moderately Played
+                              </SelectItem>
+                              <SelectItem value="heavily-played">
+                                Heavily Played
+                              </SelectItem>
+                              <SelectItem value="damaged">Damaged</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        <div className="space-y-1.5">
+                          <Label
+                            htmlFor="manual-quantity"
+                            className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground"
+                          >
+                            Quantity
+                          </Label>
+                          <Select>
+                            <SelectTrigger className="border-none text-foreground bg-transparent">
+                              <SelectValue placeholder="Select quantity" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="1">1</SelectItem>
+                              <SelectItem value="2">2</SelectItem>
+                              <SelectItem value="3">3</SelectItem>
+                              <SelectItem value="4">4</SelectItem>
+                              <SelectItem value="5">5</SelectItem>
+                              <SelectItem value="6-10">6-10</SelectItem>
+                              <SelectItem value="11-20">11-20</SelectItem>
+                              <SelectItem value="21-50">21-50</SelectItem>
+                              <SelectItem value="50+">50+</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
                       </div>
                     </div>
 
                     <div className="mt-5 flex flex-wrap gap-3">
-                      <Button className="flex-1 min-w-[150px]" size="lg">
-                        <Search className="mr-2 size-4" />
-                        Search Card
-                      </Button>
-                      <Button variant="outline" className="flex-1 min-w-[130px]" size="lg">
+                      <Button
+                        variant="outline"
+                        className="flex-1 min-w-[130px]"
+                        size="lg"
+                      >
                         Clear Form
                       </Button>
+                      <Button
+                        onClick={handleAddCard}
+                        className="flex-1 min-w-[150px]"
+                        size="lg"
+                      >
+                        <Search className="mr-2 size-4" />
+                        Add Card
+                      </Button>
+                      <ImportSuccessModal
+                        open={open}
+                        onClose={handleCloseModal}
+                      />
                     </div>
                   </div>
                 </div>
@@ -208,7 +297,10 @@ const ImportUploader = () => {
                     <li>Use the official card name for the best match.</li>
                     <li>Include the set or expansion to narrow results.</li>
                     <li>Card number and rarity help distinguish variants.</li>
-                    <li>Add extra details in notes if the card is a promo or alternate art.</li>
+                    <li>
+                      Add extra details in notes if the card is a promo or
+                      alternate art.
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -224,8 +316,13 @@ const ImportUploader = () => {
                       </div>
                       <div className="space-y-4 w-full max-w-md">
                         <div>
-                          <p className="text-xl font-semibold mb-2">Import from URL</p>
-                          <p className="text-muted-foreground text-sm">Paste your collection link from Cardmarket, Pokémon TCG, or Limitless TCG</p>
+                          <p className="text-xl font-semibold mb-2">
+                            Import from URL
+                          </p>
+                          <p className="text-muted-foreground text-sm">
+                            Paste your collection link from Cardmarket, Pokémon
+                            TCG, or Limitless TCG
+                          </p>
                         </div>
                         <div className="space-y-3">
                           <Input
@@ -252,8 +349,13 @@ const ImportUploader = () => {
                     </div>
                   </div>
                   <ul className="space-y-2 text-muted-foreground">
-                    <li>Paste your collection link from Cardmarket, Pokémon TCG, or Limitless TCG.</li>
-                    <li>Links should point to your public collection or wantlist.</li>
+                    <li>
+                      Paste your collection link from Cardmarket, Pokémon TCG,
+                      or Limitless TCG.
+                    </li>
+                    <li>
+                      Links should point to your public collection or wantlist.
+                    </li>
                     <li>Supports up to 10,000 cards per import.</li>
                   </ul>
                 </div>
