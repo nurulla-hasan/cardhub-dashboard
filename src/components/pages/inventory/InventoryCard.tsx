@@ -4,6 +4,7 @@ import { CardContent } from "@/components/ui/card";
 import { Check, Eye, TrendingDown } from "lucide-react";
 import type { InventoryItem } from "./inventoryTypes";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 const InventoryCard = ({
   item,
@@ -57,7 +58,12 @@ const InventoryCard = ({
         <div className="flex items-center justify-between gap-2 mb-2">
           <h3 className="font-semibold text-lg">{item.name}</h3>
           <Link to={`/inventory/${item.id}`}>
-            <Eye className="size-4 text-purple-500" />
+            <Button
+              variant="ghost"
+              size="icon"
+            >
+              <Eye className="size-4 text-purple-500" />
+            </Button>
           </Link>
         </div>
         <div className="flex flex-wrap items-center gap-2">

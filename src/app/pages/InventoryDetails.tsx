@@ -42,9 +42,9 @@ const InventoryDetails = () => {
         </Link>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-16">
+      <div className="grid gap-4 grid-cols-1 lg:grid-cols-12 xl:grid-cols-16">
         {/* Left column: card preview + actions */}
-        <div className="lg:col-span-3">
+        <div className="lg:col-span-3 xl:col-span-3">
           <Card className="gradient-color">
             <div className="rounded-2xl px-3">
               <img
@@ -83,7 +83,7 @@ const InventoryDetails = () => {
         </div>
 
         {/* Middle column: details + price chart placeholder */}
-        <div className="space-y-4 lg:col-span-8">
+        <div className="space-y-4 lg:col-span-6 xl:col-span-8">
           <Card>
             <CardContent className="space-y-5">
               <div className="flex items-center justify-between gap-2">
@@ -123,7 +123,7 @@ const InventoryDetails = () => {
 
                 <div className="h-px w-full bg-border/60" />
 
-                <div className="grid gap-6 text-sm text-muted-foreground sm:grid-cols-[minmax(0,1.2fr)_minmax(0,1.8fr)]">
+                <div className="grid gap-6 text-sm text-muted-foreground lg:grid-cols-2">
                   <div>
                     <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
                       Current Price
@@ -192,7 +192,7 @@ const InventoryDetails = () => {
                 <p className="text-xs font-medium text-muted-foreground">
                   Price History (30 Days)
                 </p>
-                <div className="h-64 rounded-md border border-border/60 bg-background/50 p-3 dark:bg-background/60">
+                <div className="min-h-64 rounded-md border border-border/60 bg-background/50 p-3 dark:bg-background/60">
                   <CustomChart
                     config={priceChartConfig}
                     data={priceChartData}
@@ -204,7 +204,7 @@ const InventoryDetails = () => {
         </div>
 
         {/* Right column: variants + related cards */}
-        <div className="space-y-4 lg:col-span-5">
+        <div className="space-y-4 lg:col-span-3 xl:col-span-5">
           <Card>
             <CardContent className="space-y-4">
               <div className="flex items-center justify-between gap-2 text-sm">
@@ -220,15 +220,15 @@ const InventoryDetails = () => {
                 {[1, 2, 3].map((i) => (
                   <div
                     key={i}
-                    className="flex items-center justify-between gap-3 border-b border-border/40 py-3 last:border-b-0"
+                    className="flex flex-col gap-2 border-b border-border/40 py-3 last:border-b-0 sm:flex-row sm:items-center sm:justify-between sm:gap-3"
                   >
-                    <div>
+                    <div className="flex-1">
                       <p className="text-sm font-medium text-foreground">
                         Variant name
                       </p>
                       <p>Information 1 | Information 2</p>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center justify-end gap-2 sm:justify-start">
                       <PenLine className="h-4 w-4 text-muted-foreground" />
                       <p className="text-sm font-semibold text-emerald-400">
                         450.00 €
@@ -240,13 +240,13 @@ const InventoryDetails = () => {
             </CardContent>
           </Card>
 
-          <Card className="h-96">
-            <CardContent className="flex h-full flex-col space-y-3">
+          <Card>
+            <CardContent className="space-y-3">
               <div className="flex items-center gap-2 text-sm">
                 <p className="font-semibold text-foreground">Related Cards</p>
                 <Info className="h-4 w-4 text-muted-foreground" />
               </div>
-              <div className="flex flex-1 items-center justify-center rounded-md border text-xs text-muted-foreground">
+              <div className="flex items-center justify-center rounded-md border py-8 text-xs text-muted-foreground">
                 No related cards yet
               </div>
             </CardContent>
