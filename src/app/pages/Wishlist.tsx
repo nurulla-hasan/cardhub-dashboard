@@ -4,7 +4,7 @@ import { Heart, Layers, Store } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import WishlistSummary from "@/components/pages/wishlist/WishlistSummary";
-import WishlistResults from "@/components/pages/wishlist/WishlistResults";
+import WishlistCard from "@/components/pages/wishlist/WishlistCard";
 
 const Wishlist = () => {
   const location = useLocation();
@@ -78,17 +78,13 @@ const Wishlist = () => {
       {/* Wishlist Content */}
       <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-7">
         {/* Filters sidebar */}
-        <div className="lg:col-span-2">
-          <Card>
-            <CardContent>
-              <WishlistSummary />
-            </CardContent>
-          </Card>
+        <div className="lg:col-span-2 bg-card rounded-xl p-6">
+          <WishlistSummary />
         </div>
 
         {/* Results column */}
         <div className="lg:col-span-5 space-y-5">
-          <WishlistResults />
+          <WishlistCard />
         </div>
       </div>
     </div>

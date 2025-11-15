@@ -13,7 +13,7 @@ import {
 
 const wishlistItems = [1, 2, 3];
 
-const WishlistResults = () => {
+const WishlistCard = () => {
   return (
     <div className="space-y-4">
       {/* Price update alert */}
@@ -148,4 +148,4 @@ const WishlistResults = () => {
   );
 };
 
-export default WishlistResults;
+  export default WishlistCard;

@@ -24,20 +24,20 @@ const links = [
     href: "/marketplace",
   },
   {
-    name: "Geo",
-    href: "/geo",
-  },
-  {
-    name: "Community",
-    href: "/community",
+    name: "Wishlist",
+    href: "/wishlist",
   },
   {
     name: "Deck",
     href: "/deck",
   },
   {
-    name: "Wishlist",
-    href: "/wishlist",
+    name: "Geo",
+    href: "/geo",
+  },
+  {
+    name: "Community",
+    href: "/community",
   },
   {
     name: "Trade matching",

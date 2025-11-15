@@ -1,12 +1,12 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Heart, MapPin, Activity } from "lucide-react";
+import { Layers, MapPin, Box } from "lucide-react";
 
 const stats = [
   {
     id: 1,
-    label: "Total Wishlist",
-    value: 3,
-    icon: Heart,
+    label: "Cards Needed",
+    value: 4,
+    icon: Layers,
     iconBg: "bg-fuchsia-600/20",
     iconColor: "text-fuchsia-400",
     border: "border-fuchsia-500/40",
@@ -14,7 +14,7 @@ const stats = [
   {
     id: 2,
     label: "Available Nearby",
-    value: 1,
+    value: 3,
     icon: MapPin,
     iconBg: "bg-sky-600/15",
     iconColor: "text-sky-400",
@@ -22,16 +22,16 @@ const stats = [
   },
   {
     id: 3,
-    label: "Price Updates",
-    value: 1,
-    icon: Activity,
+    label: "Active Decks",
+    value: 3,
+    icon: Box,
     iconBg: "bg-emerald-600/15",
     iconColor: "text-emerald-400",
     border: "border-emerald-500/40",
   },
 ];
 
-const WishlistSummary = () => {
+const DeckSummary = () => {
   return (
     <div className="space-y-3">
       {stats.map((stat) => {
@@ -61,4 +61,4 @@ const WishlistSummary = () => {
   );
 };
 
-export default WishlistSummary;
+export default DeckSummary;
