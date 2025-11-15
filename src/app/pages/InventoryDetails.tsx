@@ -15,8 +15,9 @@ import {
 import { Link } from "react-router";
 import CustomChart from "@/components/common/CustomChart";
 import EditModal from "@/components/pages/inventory-details/EditModal";
+import type { ChartConfig } from "@/components/ui/chart";
 
-const priceChartConfig = {
+const priceChartConfig: ChartConfig = {
   trend: { label: "Trend", color: "#38bdf8" },
   highest: { label: "Highest", color: "#34d399" },
   lowest: { label: "Lowest", color: "#fb7185" },

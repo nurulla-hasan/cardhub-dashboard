@@ -11,6 +11,7 @@ import TradeMatching from "../pages/TradeMatching";
 import Mainlayout from "../layout/Mainlayout";
 import Notifications from "../pages/Notifications";
 import InventoryDetails from "../pages/InventoryDetails";
+import MarketplaceDetails from "../pages/MarketplaceDetails";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: "/marketplace",
         element: <Marketplace />,
+      },
+      {
+        path: "/marketplace/:id",
+        element: <MarketplaceDetails />,
       },
       {
         path: "/geo",

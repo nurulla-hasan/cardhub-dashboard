@@ -10,19 +10,10 @@ const chartData = [
   { label: "02 Nov", trend: 212, highest: 258, lowest: 380 },
 ];
 
-const chartConfig: ChartConfig = {
-  trend: {
-    label: "Trend",
-    color: "hsl(var(--primary))",
-  },
-  highest: {
-    label: "Highest",
-    color: "hsl(var(--chart-2))",
-  },
-  lowest: {
-    label: "Lowest",
-    color: "hsl(var(--destructive))",
-  },
+const priceChartConfig: ChartConfig = {
+  trend: { label: "Trend", color: "#38bdf8" },
+  highest: { label: "Highest", color: "#34d399" },
+  lowest: { label: "Lowest", color: "#fb7185" },
 };
 
 const PortfolioSummary = () => {
@@ -63,25 +54,11 @@ const PortfolioSummary = () => {
         
         {/* Chart */}
         <div>
-          <div className="flex items-center justify-between text-xs text-muted-foreground">
+          <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
             <span>Price History (30 Days)</span>
             <span>€</span>
           </div>
-          <div className="mt-3 flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <span className="inline-flex h-1 w-8 rounded-full bg-primary" />
-              Trend
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="inline-flex h-1 w-8 rounded-full bg-emerald-400" />
-              Highest
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="inline-flex h-1 w-8 rounded-full bg-rose-400" />
-              Lowest
-            </div>
-          </div>
-          <CustomChart config={chartConfig} data={chartData} />
+          <CustomChart config={priceChartConfig} data={chartData} />
         </div>
       </CardContent>
     </Card>
