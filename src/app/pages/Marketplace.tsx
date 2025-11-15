@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router";
 import { Button } from "@/components/ui/button";
 import { Heart, Layers, Search, Store } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -32,6 +33,7 @@ const listings = [
 const Marketplace = () => {
   const [priceRange, setPriceRange] = useState([200, 2000]);
   const [search, setSearch] = useState("");
+  const location = useLocation();
 
   const filteredListings = listings.filter((item) => {
     if (search && !item.name.toLowerCase().includes(search.toLowerCase())) {
@@ -53,21 +55,40 @@ const Marketplace = () => {
               </p>
             </div>
             <div className="flex flex-wrap gap-3 justify-center md:justify-end">
-              <Button
-                size="lg"
-                className="gradient-button flex items-center gap-2 px-5 py-2 text-sm font-medium text-white"
-              >
-                <Store />
-                Marketplace
-              </Button>
-              <Button size="lg" variant="outline">
-                <Heart />
-                Wishlist <Badge variant="outline">3</Badge>
-              </Button>
-              <Button size="lg" variant="outline">
-                <Layers />
-                Deck Needs <Badge variant="outline">4</Badge>
-              </Button>
+              <Link to="/marketplace">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className={`flex items-center gap-2 px-5 py-2 text-sm font-medium ${
+                    location.pathname === "/marketplace"
+                      ? "gradient-button text-white"
+                      : "border border-border hover:bg-accent"
+                  }`}
+                >
+                  <Store />
+                  Marketplace
+                </Button>
+              </Link>
+              <Link to="/wishlist">
+                <Button size="lg" variant="outline" className={`flex items-center gap-2 px-5 py-2 text-sm font-medium ${
+                  location.pathname === "/wishlist"
+                    ? "gradient-button text-white"
+                    : "border border-border hover:bg-accent"
+                }`}>
+                  <Heart />
+                  Wishlist <Badge variant="outline" className="border-none">3</Badge>
+                </Button>
+              </Link>
+              <Link to="/deck">
+                <Button size="lg" variant="outline" className={`flex items-center gap-2 px-5 py-2 text-sm font-medium ${
+                  location.pathname === "/deck"
+                    ? "gradient-button text-white"
+                    : "border border-border hover:bg-accent"
+                }`}>
+                  <Layers />
+                  Deck Needs <Badge variant="outline" className="border-none">4</Badge>
+                </Button>
+              </Link>
             </div>
           </div>
         </CardContent>
