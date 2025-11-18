@@ -1,16 +1,23 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Filter, Search } from "lucide-react";
+import { Filter, Search, MoveLeft } from "lucide-react";
 import MarketplaceSPProfile from "@/components/pages/marketplace-sp/MarketplaceSPProfile";
 import MarketplaceSPCard from "@/components/pages/marketplace-sp/MarketplaceSPCard";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 const MarketplaceSP = () => {
   return (
-    <div>
+    <>
+    <Button
+      variant="ghost"
+      onClick={() => window.history.back()}
+      aria-label="Go back"
+    >
+      <MoveLeft /> Back
+    </Button>
       {/* Marketplace Content */}
-      <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-12">
+      <div className="mt-4 grid grid-cols-1 gap-6 lg:grid-cols-12">
         {/* Filters sidebar */}
         <div className="lg:col-span-3">
           <MarketplaceSPProfile />
@@ -73,7 +80,7 @@ const MarketplaceSP = () => {
                 </p>
               </div>
 
-              <ScrollArea className="gap-3 rounded-2xl p-4 bg-card/50 md:h-[600px]">
+              <ScrollArea className="gap-3 rounded-2xl p-4 bg-card/50 md:h-[550px]">
                 {[...Array(10)].map((_, index) => (
                   <div
                     key={index}
@@ -103,7 +110,7 @@ const MarketplaceSP = () => {
           </Tabs>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
