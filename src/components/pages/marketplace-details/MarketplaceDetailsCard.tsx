@@ -2,7 +2,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
+import { Link } from "react-router";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 interface MarketplaceDetailsCardProps {
   item: {
@@ -51,24 +52,26 @@ const MarketplaceDetailsCard = ({ item }: MarketplaceDetailsCardProps) => {
             </div>
 
             {/* Seller strip */}
-            <div className="flex items-center gap-2 sm:gap-3 rounded-full bg-muted/40 px-2 py-2 sm:px-3 text-xs">
-              <Avatar className="h-6 w-6 sm:h-7 sm:w-7 rounded-full shrink-0 overflow-hidden">
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback className="text-[10px]">CN</AvatarFallback>
-              </Avatar>
-              <div className="flex flex-1 flex-col gap-0.5 min-w-0">
-                <div className="flex items-center gap-1 text-[10px] sm:text-[11px] font-medium text-foreground">
-                  <span className="truncate">Username</span>
-                  <span className="text-primary hidden sm:inline">•</span>
-                  <span className="text-muted-foreground truncate">
-                    4.9 ★ · 1543 sales
-                  </span>
-                </div>
-                <div className="text-[9px] sm:text-[10px] text-muted-foreground sm:hidden">
-                  2.3km away
+            <Link to="/marketplace-seller-profile">
+              <div className="flex items-center gap-2 sm:gap-3 rounded-full bg-muted/40 px-2 py-2 sm:px-3 text-xs">
+                <Avatar className="h-6 w-6 sm:h-7 sm:w-7 rounded-full shrink-0 overflow-hidden">
+                  <AvatarImage src="https://github.com/shadcn.png" />
+                  <AvatarFallback className="text-[10px]">CN</AvatarFallback>
+                </Avatar>
+                <div className="flex flex-1 flex-col gap-0.5 min-w-0">
+                  <div className="flex items-center gap-1 text-[10px] sm:text-[11px] font-medium text-foreground">
+                    <span className="truncate">Username</span>
+                    <span className="text-primary hidden sm:inline">•</span>
+                    <span className="text-muted-foreground truncate">
+                      4.9 ★ · 1543 sales
+                    </span>
+                  </div>
+                  <div className="text-[9px] sm:text-[10px] text-muted-foreground sm:hidden">
+                    2.3km away
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
 

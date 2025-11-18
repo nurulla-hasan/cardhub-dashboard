@@ -30,8 +30,8 @@ const Dashboard = () => {
 
             <div className="md:col-span-4">
               <Card className="gradient-color">
-                <CardContent className="p-0">
-                  <div className="flex items-center justify-between p-4">
+                <CardContent className="space-y-3">
+                  <div className="flex items-center justify-between">
                     <div className="text-lg font-semibold">Main Area</div>
                     <Tabs defaultValue="total">
                       <TabsList className="bg-transparent">
@@ -48,7 +48,7 @@ const Dashboard = () => {
                     </Tabs>
                   </div>
                   <Separator />
-                  <div className="p-4">
+                  <div>
                     <div className="flex items-center gap-3">
                       <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/20 text-primary">
                         <Layers3 />

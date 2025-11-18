@@ -12,6 +12,7 @@ import Mainlayout from "../layout/Mainlayout";
 import Notifications from "../pages/Notifications";
 import InventoryDetails from "../pages/InventoryDetails";
 import MarketplaceDetails from "../pages/MarketplaceDetails";
+import MarketplaceSP from "../pages/MarketplaceSP";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
       {
         path: "/marketplace/:id",
         element: <MarketplaceDetails />,
+      },
+      {
+        path: "/marketplace-seller-profile",
+        element: <MarketplaceSP />,
       },
       {
         path: "/geo",
