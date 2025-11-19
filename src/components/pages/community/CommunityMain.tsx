@@ -92,7 +92,7 @@ const CommunityMain = () => {
           {[1, 2, 3, 4].map((item) => (
             <Card
               key={item}
-              className="overflow-hidden border-none bg-card/50"
+              className="overflow-hidden border-none bg-card/50 p-0"
             >
               <CardContent className="p-0">
                 <div className="flex items-stretch gap-4 p-4">

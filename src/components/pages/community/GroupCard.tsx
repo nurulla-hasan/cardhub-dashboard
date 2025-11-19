@@ -6,8 +6,8 @@ import { Clock, MapPin, Users } from "lucide-react";
 // Single trending group card
 const GroupCard = () => {
   return (
-    <Card className="overflow-hidden border-none bg-card/50">
-      <div className="relative h-28 w-full bg-linear-to-r from-fuchsia-500/40 via-purple-500/30 to-indigo-500/40">
+    <Card className="overflow-hidden border-none bg-card/50 p-0">
+      <div className="relative h-42 w-full bg-linear-to-r from-fuchsia-500/40 via-purple-500/30 to-indigo-500/40">
         <div className="absolute left-3 top-3 flex items-center gap-1 rounded-full bg-black/40 px-2 py-0.5 text-[11px] text-white backdrop-blur">
           <span className="inline-block h-2 w-2 rounded-full bg-emerald-400" />
           46 online
