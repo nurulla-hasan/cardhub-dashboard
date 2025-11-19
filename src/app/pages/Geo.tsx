@@ -36,7 +36,7 @@ const Geo = () => {
 
       <div className="grid grid-cols-1 gap-5 xl:grid-cols-12">
         <div className="space-y-4 col-span-9">
-          <Card className="relative min-h-[68vh] overflow-hidden py-0">
+          <Card className="relative min-h-[68vh] overflow-hidden p-0">
             <CardContent className="p-0">
               <GeoMap />
               <div className="pointer-events-none absolute inset-0">
@@ -49,13 +49,11 @@ const Geo = () => {
           <GeoRadiusBar />
         </div>
 
-        <div className="md:col-span-3">
-          <Card className="py-0">
-            <CardContent className="p-0">
-              <GeoSidebar />
-            </CardContent>
-          </Card>
-        </div>
+        <Card className="md:col-span-3">
+          <CardContent className="h-full">
+            <GeoSidebar />
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
