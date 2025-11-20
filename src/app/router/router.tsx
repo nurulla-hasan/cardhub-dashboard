@@ -15,6 +15,7 @@ import InventoryDetails from "../pages/InventoryDetails";
 import MarketplaceDetails from "../pages/MarketplaceDetails";
 import MarketplaceSP from "../pages/MarketplaceSP";
 import CommunityDetails from "../pages/CommunityDetails";
+import Profile from "../pages/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -80,6 +81,10 @@ export const router = createBrowserRouter([
       {
         path: "/notifications",
         element: <Notifications />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       },
     ],
   },

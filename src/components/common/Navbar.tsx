@@ -124,7 +124,7 @@ const Navbar = () => {
                 0,00 €
               </span>
             </div>
-            <div className="flex items-center gap-3">
+            <Link to="/profile" className="flex items-center gap-3">
               <Avatar className="size-9 border-2 border-primary/60 shadow-sm">
                 <AvatarImage
                   src="https://i.pravatar.cc/100?img=47"
@@ -133,7 +133,7 @@ const Navbar = () => {
                 <AvatarFallback>UN</AvatarFallback>
               </Avatar>
               <span className="text-sm font-semibold">Username</span>
-            </div>
+            </Link>
             <Button
               variant="outline"
               size="icon"
