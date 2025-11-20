@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { Search, Map, List, MapPin, Clock, Users } from "lucide-react";
 import GroupCard from "@/components/pages/community/GroupCard";
+import { Link } from "react-router";
 
 const CommunityMain = () => {
   const [isMap, setIsMap] = useState(false);
@@ -46,13 +47,15 @@ const CommunityMain = () => {
           All <span className="ml-2 rounded-full bg-white/20 px-1.5">4</span>
         </button>
         <button className="rounded-full px-4 py-1 text-xs font-semibold border border-border/60 bg-background/40">
-          Competitive <span className="ml-2 rounded-full bg-white/10 px-1.5">4</span>
+          Competitive{" "}
+          <span className="ml-2 rounded-full bg-white/10 px-1.5">4</span>
         </button>
         <button className="rounded-full px-4 py-1 text-xs font-semibold border border-border/60 bg-background/40">
           Casual <span className="ml-2 rounded-full bg-white/10 px-1.5">4</span>
         </button>
         <button className="rounded-full px-4 py-1 text-xs font-semibold border border-border/60 bg-background/40">
-          Trading <span className="ml-2 rounded-full bg-white/10 px-1.5">4</span>
+          Trading{" "}
+          <span className="ml-2 rounded-full bg-white/10 px-1.5">4</span>
         </button>
         <button className="rounded-full px-4 py-1 text-xs font-semibold border border-border/60 bg-background/40">
           Social <span className="ml-2 rounded-full bg-white/10 px-1.5">4</span>
@@ -72,7 +75,9 @@ const CommunityMain = () => {
 
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {[1, 2, 3].map((i) => (
-            <GroupCard key={i} />
+            <Link to="/community/1">
+              <GroupCard key={i} />
+            </Link>
           ))}
         </div>
       </div>
@@ -88,7 +93,7 @@ const CommunityMain = () => {
           </p>
         </div>
 
-        <div className="space-y-3">
+        <Link to="/community/1" className="space-y-3">
           {[1, 2, 3, 4].map((item) => (
             <Card
               key={item}
@@ -137,7 +142,7 @@ const CommunityMain = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
+        </Link>
       </div>
     </div>
   );

@@ -55,11 +55,11 @@ export const CommunityFeed = () => {
             is 10,00 €, winner takes home a Charizard VMAX!
           </p>
 
-          <div className="overflow-hidden rounded-2xl">
+          <div className="overflow-hidden">
             <img
-              src="https://images.pexels.com/photos/1293261/pexels-photo-1293261.jpeg"
+              src="/images/poc.png"
               alt="Tournament banner"
-              className="w-full h-64 object-cover"
+              className="w-[40%] rounded-2xl h-64 object-cover"
             />
           </div>
 

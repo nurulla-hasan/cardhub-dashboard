@@ -27,7 +27,7 @@ const CommunityDetails = () => {
       </Button>
 
       {/* Banner Section */}
-      <Card className="relative w-full h-96 overflow-hidden my-6 border-0">
+      <Card className="relative w-full h-96 overflow-hidden my-4 border-0">
         {/* <div className="absolute inset-0">
           <img 
             src="https://placehold.co/1200x400/4F46E5/EC4899?text=SF+Pokemon+League" 
