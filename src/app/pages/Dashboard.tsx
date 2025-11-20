@@ -33,15 +33,15 @@ const Dashboard = () => {
                 <CardContent className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="text-lg font-semibold">Main Area</div>
-                    <Tabs defaultValue="total">
-                      <TabsList className="bg-transparent">
-                        <TabsTrigger value="total">
+                    <Tabs defaultValue="total" className="h-9 rounded-full">
+                      <TabsList className="rounded-full bg-background/50">
+                        <TabsTrigger value="total" className="rounded-full text-xs">
                           Total collection value
                         </TabsTrigger>
-                        <TabsTrigger value="activity">
+                        <TabsTrigger value="activity" className="rounded-full text-xs">
                           Recent activity feed
                         </TabsTrigger>
-                        <TabsTrigger value="highlights">
+                        <TabsTrigger value="highlights" className="rounded-full text-xs">
                           Nearby highlights
                         </TabsTrigger>
                       </TabsList>

@@ -1,3 +1,4 @@
+
 import { createBrowserRouter } from "react-router";
 import Dashboard from "../pages/Dashboard";
 import Inventory from "../pages/Inventory";
@@ -13,6 +14,7 @@ import Notifications from "../pages/Notifications";
 import InventoryDetails from "../pages/InventoryDetails";
 import MarketplaceDetails from "../pages/MarketplaceDetails";
 import MarketplaceSP from "../pages/MarketplaceSP";
+import CommunityDetails from "../pages/CommunityDetails";
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +60,10 @@ export const router = createBrowserRouter([
       {
         path: "/community",
         element: <Community />,
+      },
+      {
+        path: "/community/:id",
+        element: <CommunityDetails />,
       },
       {
         path: "/deck",
