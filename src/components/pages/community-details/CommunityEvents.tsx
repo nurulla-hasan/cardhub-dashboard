@@ -4,7 +4,7 @@ import { Calendar, MapPin, Users } from "lucide-react";
 
 export const CommunityEvents = () => {
   return (
-    <Card className="col-span-3 border border-border bg-card">
+    <Card className="col-span-full md:col-span-3 border border-border bg-card">
       <CardContent className="space-y-5">
         <h3 className="text-base font-semibold text-foreground">
           Upcoming Event

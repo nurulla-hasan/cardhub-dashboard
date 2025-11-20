@@ -115,7 +115,7 @@ const CommunityDetails = () => {
         </Card>
       </Card>
 
-      <div className="grid grid-cols-12 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
         <CommunitySidebar />
         <CommunityFeed />
         <CommunityEvents />

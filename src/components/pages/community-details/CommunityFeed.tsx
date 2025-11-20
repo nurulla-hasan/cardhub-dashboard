@@ -13,7 +13,7 @@ import {
 
 export const CommunityFeed = () => {
   return (
-    <Card className="col-span-7 border border-border bg-card">
+    <Card className="col-span-full md:col-span-7 border border-border bg-card">
       <CardContent className="space-y-6">
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <Pin className="w-4 h-4" />
@@ -22,7 +22,7 @@ export const CommunityFeed = () => {
 
         <div className="rounded-2xl bg-muted/70 px-5 py-4 space-y-4">
           <div className="flex items-start justify-between gap-3">
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <div className="relative">
                 <Avatar className="w-10 h-10">
                   <AvatarImage
@@ -59,7 +59,7 @@ export const CommunityFeed = () => {
             <img
               src="/images/poc.png"
               alt="Tournament banner"
-              className="w-[40%] rounded-2xl h-64 object-cover"
+              className="md:w-[40%] rounded-2xl h-64 object-cover"
             />
           </div>
 

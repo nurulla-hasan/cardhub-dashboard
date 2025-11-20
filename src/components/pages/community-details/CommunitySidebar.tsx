@@ -6,7 +6,7 @@ import { Calendar, Hash, MessageSquare, Pin, Users } from "lucide-react";
 
 export const CommunitySidebar = () => {
   return (
-    <Card className="col-span-2 flex flex-col justify-between border border-border bg-card">
+    <Card className="col-span-full md:col-span-2 flex flex-col justify-between border border-border bg-card">
       <CardContent className="space-y-3">
         <Button
           variant="ghost"
