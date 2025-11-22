@@ -1,91 +1,162 @@
 
 import { createBrowserRouter } from "react-router";
-import Dashboard from "../pages/Dashboard";
-import Inventory from "../pages/Inventory";
-import ImportPage from "../pages/Import";
-import Marketplace from "../pages/Marketplace";
-import Geo from "../pages/Geo";
-import Community from "../pages/Community";
-import Deck from "../pages/Deck";
-import Wishlist from "../pages/Wishlist";
-import TradeMatching from "../pages/TradeMatching";
-import Mainlayout from "../layout/Mainlayout";
-import Notifications from "../pages/Notifications";
-import InventoryDetails from "../pages/InventoryDetails";
-import MarketplaceDetails from "../pages/MarketplaceDetails";
-import MarketplaceSP from "../pages/MarketplaceSP";
-import CommunityDetails from "../pages/CommunityDetails";
-import Profile from "../pages/Profile";
+import { lazy } from "react";
+import RouteSuspense from "@/components/common/RouteSuspense";
+
+const Dashboard = lazy(() => import("../pages/Dashboard"));
+const Inventory = lazy(() => import("../pages/Inventory"));
+const ImportPage = lazy(() => import("../pages/Import"));
+const Marketplace = lazy(() => import("../pages/Marketplace"));
+const Geo = lazy(() => import("../pages/Geo"));
+const Community = lazy(() => import("../pages/Community"));
+const Deck = lazy(() => import("../pages/Deck"));
+const Wishlist = lazy(() => import("../pages/Wishlist"));
+const TradeMatching = lazy(() => import("../pages/TradeMatching"));
+const Mainlayout = lazy(() => import("../layout/Mainlayout"));
+const Notifications = lazy(() => import("../pages/Notifications"));
+const InventoryDetails = lazy(() => import("../pages/InventoryDetails"));
+const MarketplaceDetails = lazy(() => import("../pages/MarketplaceDetails"));
+const MarketplaceSP = lazy(() => import("../pages/MarketplaceSP"));
+const CommunityDetails = lazy(() => import("../pages/CommunityDetails"));
+const Profile = lazy(() => import("../pages/Profile"));
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Mainlayout />,
+    element: (
+      <RouteSuspense>
+        <Mainlayout />
+      </RouteSuspense>
+    ),
     children: [
       {
         index: true,
-        element: <Dashboard />,
+        element: (
+          <RouteSuspense>
+            <Dashboard />
+          </RouteSuspense>
+        ),
       },
       {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: (
+          <RouteSuspense>
+            <Dashboard />
+          </RouteSuspense>
+        ),
       },
       {
         path: "/inventory",
-        element: <Inventory />,
+        element: (
+          <RouteSuspense>
+            <Inventory />
+          </RouteSuspense>
+        ),
       },
       {
         path: "/inventory/:id",
-        element: <InventoryDetails />,
+        element: (
+          <RouteSuspense>
+            <InventoryDetails />
+          </RouteSuspense>
+        ),
       },
       {
         path: "/import",
-        element: <ImportPage />,
+        element: (
+          <RouteSuspense>
+            <ImportPage />
+          </RouteSuspense>
+        ),
       },
       {
         path: "/marketplace",
-        element: <Marketplace />,
+        element: (
+          <RouteSuspense>
+            <Marketplace />
+          </RouteSuspense>
+        ),
       },
       {
         path: "/marketplace/:id",
-        element: <MarketplaceDetails />,
+        element: (
+          <RouteSuspense>
+            <MarketplaceDetails />
+          </RouteSuspense>
+        ),
       },
       {
         path: "/marketplace-seller-profile",
-        element: <MarketplaceSP />,
+        element: (
+          <RouteSuspense>
+            <MarketplaceSP />
+          </RouteSuspense>
+        ),
       },
       {
         path: "/geo",
-        element: <Geo />,
+        element: (
+          <RouteSuspense>
+            <Geo />
+          </RouteSuspense>
+        ),
       },
       {
         path: "/community",
-        element: <Community />,
+        element: (
+          <RouteSuspense>
+            <Community />
+          </RouteSuspense>
+        ),
       },
       {
         path: "/community/:id",
-        element: <CommunityDetails />,
+        element: (
+          <RouteSuspense>
+            <CommunityDetails />
+          </RouteSuspense>
+        ),
       },
       {
         path: "/deck",
-        element: <Deck />,
+        element: (
+          <RouteSuspense>
+            <Deck />
+          </RouteSuspense>
+        ),
       },
       {
         path: "/wishlist",
-        element: <Wishlist />,
+        element: (
+          <RouteSuspense>
+            <Wishlist />
+          </RouteSuspense>
+        ),
       },
       {
         path: "/trade-matching",
-        element: <TradeMatching />,
+        element: (
+          <RouteSuspense>
+            <TradeMatching />
+          </RouteSuspense>
+        ),
       },
       {
         path: "/notifications",
-        element: <Notifications />,
+        element: (
+          <RouteSuspense>
+            <Notifications />
+          </RouteSuspense>
+        ),
       },
       {
         path: "/profile",
-        element: <Profile />,
+        element: (
+          <RouteSuspense>
+            <Profile />
+          </RouteSuspense>
+        ),
       },
     ],
   },
-])
+]);
